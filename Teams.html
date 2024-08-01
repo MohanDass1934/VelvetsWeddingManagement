@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Teams of Velvets Wedding</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #202a33;
+            margin: 0;
+        }
+
+        .header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            margin-left: 20px;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 40px;
+        }
+
+        .right-head {
+            display: flex;
+            gap: 15px;
+            margin-right: 50px;
+        }
+
+        .right-head a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .right-head a:hover {
+            background-color: #202a33;
+            color: white;
+        }
+
+        .button {
+            padding: 10px;
+            background-color: #747474;
+            color: white;
+            font-size: large;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #4d4d4d;
+        }
+
+        @media (max-width: 768px) {
+            .logo{
+          margin-left: 10px;
+        }
+            .menu-icon {
+                display: block;
+                margin-right: 30px;
+            }
+
+            .right-head {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #ffffff;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                margin: 0%;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .right-head.active {
+                display: flex;
+            }
+
+            .right-head a {
+                text-align: center;
+                width: 100%;
+                /* padding: 15px;
+                border-bottom: 1px solid #f1f1f1; */
+            }
+
+            /* .right-head a:last-child {
+                border-bottom: none;
+            } */
+        }
+        .main-view {
+            position: relative;
+            max-width: 100%;
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+           
+        }
+
+        .main-view h1 {
+            font-family: Kunstler Script, cursive;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px gray;
+            margin: 0;
+        }
+
+        .main-view p {
+            font-size: 1rem;
+            line-height: 1.6;
+            letter-spacing: 1px;
+            max-width: 700px;
+            margin: 10px auto 0;
+            
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background-color: #ffffff;
+            margin: 10px 0;
+            padding: 20px;
+        }
+
+        .image, .description {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .description h1, .description p {
+            margin: 0 0 10px;
+        }
+
+        .description p {
+            line-height: 1.5;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .main-view h1 {
+                font-size: 50px;
+            }
+
+            .main-view p {
+                font-size: 14px;
+            }
+
+            .image, .description {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="header">
+            <h1 class="logo">Velvets</h1>
+            <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+            <div class="right-head">
+                <a href="../Index.html">Home</a>
+                <a href="../Album.html">Albums</a>
+                <a href="../Teams.html">Teams</a>
+                <a href="../Videos.html">Videos</a>
+                <a href="../Testimonial.html">Testimonials</a>
+                <a href="../Service.html">Service</a>
+                <a class="button" href="../Contactpage.html">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        function toggleMenu() {
+            var rightHead = document.querySelector('.right-head');
+            rightHead.classList.toggle('active');
+        }
+    </script>
+
+    <div class="main-view">
+        <div>
+            <h1>The Makers</h1>
+            <p>A wedding team ensures a seamless celebration. They manage planning,
+                coordination, design, florals, photography, videography, catering, 
+                music, beauty, officiation, transportation, and venue setup. Each expert
+                handles crucial details, from aesthetics to logistics, creating a flawless,
+                memorable day, allowing the couple to enjoy their special moments stress-free.</p>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="image">
+            <img src="./image/Team-image.png" alt="Wedding Planner">
+        </div>
+        <div class="description">
+            <h1>Wedding Planner</h1>
+            <p>A wedding planner is the orchestrator of your special day. From the initial planning
+                stages to the final farewell, they handle every detail to ensure your wedding goes off
+                without a hitch. Their expertise includes budget management, vendor coordination, timeline
+                creation, and troubleshooting any last-minute issues, allowing you to focus on enjoying your big day.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image">
+            <img src="./image/team-image1.png" alt="Photography">
+        </div>
+        <div class="description">
+            <h1>Photography</h1>
+            <p>A wedding photographer captures the precious moments of your special day.
+                They document everything from getting ready to the ceremony, reception, and candid moments in between.
+                Their skillful eye and creativity provide you with timeless photos to cherish forever.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image">
+            <img src="./image/Team-image2.png" alt="Catering">
+        </div>
+        <div class="description">
+            <h1>Catering</h1>
+            <p>A caterer provides delicious food and beverages for your wedding.
+                They work with you to create a menu that suits your tastes and dietary needs, ensuring that your guests
+                are treated to a memorable culinary experience.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image">
+            <img src="./image/Team-image3.png" alt="Design">
+        </div>
+        <div class="description">
+            <h1>Design</h1>
+            <p>A wedding designer focuses on the aesthetics and overall look of your wedding.
+                They help you create a cohesive design concept, select decor elements, and ensure everything
+                from the flowers to the table settings aligns with your vision. Their artistic touch transforms
+                your venue into a beautiful and personalized space.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image">
+            <img src="./image/Thaalam.jpeg" alt="Florist">
+        </div>
+        <div class="description">
+            <h1>Florist</h1>
+            <p>A florist is responsible for creating stunning floral arrangements that enhance the
+                beauty of your wedding. They design bouquets, boutonnieres, centerpieces, and other floral decorations,
+                ensuring that the flowers reflect your style and theme.</p>
+        </div>
+    </div>
+    <footer id="footer-tab"></footer>
+    <script>
+        fetch('Footer/Footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-tab').innerHTML = data;
+        });
+    </script>
+</body>
+</html>

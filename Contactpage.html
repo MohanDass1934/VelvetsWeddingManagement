@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  /* background-color: #747474; */
+}
+
+.header {
+          background-color: #ffffff;
+          padding: 10px 20px;
+          display: flex;
+          justify-content: space-between; 
+          align-items: center;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 1000;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .logo {
+          font-size: 24px;
+          font-weight: bold;
+          margin: 0;
+          margin-left: 20px;
+      }
+      .menu-icon {
+          display: none;
+          font-size: 24px;
+          cursor: pointer;
+          margin-right: 40px;
+      }
+      .right-head {
+          display: flex;
+          gap: 15px;
+          margin-right: 50px;
+      }
+      .right-head a {
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          padding: 10px;
+          border-radius: 5px;
+          transition: background-color 0.3s, color 0.3s;
+      }
+      .right-head a:hover {
+          background-color: #202a33;
+          color: white;
+      }
+      .button {
+          padding: 10px;
+          background-color: #747474;
+          color: white;
+          font-size: large;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+      .button:hover {
+          background-color: #4d4d4d;
+      }
+      @media (max-width: 768px) {
+        .logo{
+          margin-left: 10px;
+        }
+          .menu-icon {
+              display: block;
+              margin-right: 30px;
+          }
+          .right-head {
+              display: none;
+              flex-direction: column;
+              width: 100%;
+              background-color: #ffffff;
+              position: absolute;
+              top: 50px;
+              left: 0;
+              margin:0%;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          }
+          .right-head.active {
+              display: flex;
+          }
+          .right-head a {
+              text-align: center;
+              width: 100%;
+          }
+      }
+              @media (max-width: 768px) {
+            .main-view h1 {
+                font-size: 50px;
+            }
+
+            .main-view p {
+                font-size: 14px;
+            }
+
+            .image, .description {
+                padding: 10px;
+            }
+        }
+        .contact-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 40px auto;
+  padding: 40px;
+  /* border: 1px solid #ccc; */
+  /* border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+.contact-form {
+  flex: 1;
+  /* margin-right: 20px; */
+  margin-left:40px ;
+  /* background-color:rgb(93, 93, 143) ; */
+}
+.contact-form h1 {
+  margin-bottom: 10px;
+  font-size:60px;
+}
+.contact-form p {
+  margin-bottom: 20px;
+  color: #777;
+}
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+.contact-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: larger;
+}
+.contact-form .form-group input {
+  height: 40px;
+}
+.contact-form .form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+.contact-form .form-group-inline {
+  display: flex;
+  justify-content: space-between;
+}
+.contact-form .form-group-inline .form-group {
+  width: 48%;
+}
+.contact-form button {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000000;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+.contact-form button:hover {
+  background-color: #303030;
+}
+.contact-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 30px 25px ;
+  height: 620px;
+  width: 10px;
+  overflow: hidden;
+  position: relative;
+  background-color: #0056b3;
+}
+@media (max-width: 768px) {
+
+.contact-image{
+  display: none;
+}
+.contact-form {
+  flex: 1;
+  /* margin-right: 20px; */
+  margin: 0;
+
+}
+
+}
+.main-view {
+            position: relative;
+            max-width: 100%;
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+.main-view h1 {
+  font-family: Kunstler Script, cursive;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px gray;
+            margin: 0;
+}
+.main-view p{
+  font-size: 1rem;
+            line-height: 1.6;
+            letter-spacing: 1px;
+            max-width: 700px;
+            margin: 10px auto 0;
+}
+input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+    </style>
+</head>
+<body>
+  <nav>
+    <div class="header">
+        <h1 class="logo">Velvets</h1>
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <div class="right-head">
+            <a href="../Index.html">Home</a>
+            <a href="../Album.html">Albums</a>
+            <a href="../Teams.html">Teams</a>
+            <a href="../Videos.html">Videos</a>
+            <a href="../Testimonial.html">Testimonials</a> 
+            <a href="../Service.html">Service</a> 
+            <a class="button" href="../Contactpage.html">Contact Us</a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    function toggleMenu() {
+        var rightHead = document.querySelector('.right-head');
+        rightHead.classList.toggle('active');
+    }
+</script>
+           <div class="main-view">
+            <!-- <img src="./image/Main-Image.jpeg" alt="Main View"> -->
+               <div>
+                <h1>Let's Talk</h1>
+                <p>Reach out to us for any questions or assistance. Our team is here 
+                    to help with wedding planning, inquiries, and support. Whether 
+                    you need information or want to discuss your vision, we're ready 
+                    to assist. Contact us via phone, email, or our online form. We look forward to connecting.</p>
+               </div>
+        </div>
+    <div class="contact-container">
+        <div class="contact-form">
+            <h1>Contact Us</h1>
+            <p>Feel free to contact us by filling the form below.</p>
+            <form action="#">
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Mobile Number</label>
+                    <input type="number" id="number" name="number">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit">Send your enquiry!</button>
+            </form>
+        </div>
+        <div class="contact-image">
+            <img src="./image/v54_14.png" alt="Contact Image">
+        </div>
+    </div>
+    <footer id="footer-tab"></footer>
+        <script setup lang="ts">
+        fetch('Footer/Footer.html')
+        .then(response => response.text())
+        .then(data1 =>{
+        document.getElementById('footer-tab').innerHTML=data1;
+    });
+</script>
+</body>
+</html>

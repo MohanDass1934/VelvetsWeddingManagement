@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albums</title>
+    <style>
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+   
+}
+.main-view {
+    position: relative;
+            max-width: 100%;
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+}
+
+/* .main-view img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.main-view h1 {
+    
+   
+    font-family: Kunstler Script, cursive;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px gray;
+            margin: 0;
+}
+.main-view p{
+
+    
+    font-size: 1rem;
+            line-height: 1.6;
+            letter-spacing: 1px;
+            max-width: 600px;
+            margin: 10px auto 0;
+    
+}
+.grid-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Increase min width to 200px */
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 0;
+    padding-bottom: 100%; /* Make grid items square */
+    cursor: pointer;
+}
+
+.grid-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+
+.lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.lightbox-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.lightbox-controls button {
+    background-color: rgba(0, 0, 0, 0.7);
+   border-style: hidden;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #f0f0f0;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #f0f0f0;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    border-style: hidden;
+    cursor: pointer;
+    font-size: 16px;
+}
+.header {
+          background-color: #ffffff;
+          padding: 10px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 1000;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .logo {
+          font-size: 24px;
+          font-weight: bold;
+          margin: 0;
+          margin-left: 20px;
+      }
+      .menu-icon {
+          display: none;
+          font-size: 24px;
+          cursor: pointer;
+          margin-right: 40px;
+      }
+      .right-head {
+          display: flex;
+          gap: 15px;
+          margin-right: 50px;
+      }
+      .right-head a {
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          padding: 10px;
+          border-radius: 5px;
+          transition: background-color 0.3s, color 0.3s;
+      }
+      .right-head a:hover {
+          background-color: #202a33;
+          color: white;
+      }
+      .button {
+          padding: 10px;
+          background-color: #747474;
+          color: white;
+          font-size: large;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+      .button:hover {
+          background-color: #4d4d4d;
+      }
+      @media (max-width: 768px) {
+        .logo{
+          margin-left: 10px;
+        }
+          .menu-icon {
+              display: block;
+              
+          }
+          .right-head {
+              display: none;
+              flex-direction: column;
+              width: 100%;
+              background-color: #ffffff;
+              position: absolute;
+              top: 50px;
+              left: 0;
+              margin:0%;
+             
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          }
+          .right-head.active {
+              display: flex;
+          }
+          .right-head a {
+              text-align: center;
+              width: 100%;
+          }
+      }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="header">
+            <h1 class="logo">Velvets</h1>
+            <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+            <div class="right-head">
+                <a href="../Index.html">Home</a>
+                <a href="../Album.html">Albums</a>
+                <a href="../Teams.html">Teams</a>
+                <a href="../Videos.html">Videos</a>
+                <a href="../Testimonial.html">Testimonials</a> 
+                <a href="../Service.html">Service</a> 
+                <a class="button" href="../Contactpage.html">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        function toggleMenu() {
+            var rightHead = document.querySelector('.right-head');
+            rightHead.classList.toggle('active');
+        }
+    </script>
+
+    <div class="main-view">
+        <div>
+                   <!-- <img src="./image/Main-Image.jpeg" alt="Main View"> -->
+        <h1>Couples Gallery</h1>
+        <p>Images often show couples smiling or laughing together, 
+            capturing the joy they feel in each other's presence. 
+            This joy is a wish for continued happiness and enjoyment in their shared life.</p>
+        </div>
+ 
+    </div>
+
+    
+    <div class="grid-container">
+        <!-- Repeat this block for each image -->
+        <div class="grid-item">
+            <img src="./image/Album1.jpeg" alt="Album 1">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album2.jpeg" alt="Album 2">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album3.jpeg" alt="Album 3">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album4.jpeg" alt="Album 4">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album5.jpeg" alt="Album 5">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album6.jpeg" alt="Album 6">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album8.jpeg" alt="Album 7">
+        </div>
+        <div class="grid-item">
+            <img src="./image/cer.jpeg" alt="Album 8">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album10.jpeg" alt="Album 9">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album11.jpeg" alt="Album 10">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album12.jpeg" alt="Album 11">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album13.jpeg" alt="Album 12">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album14.jpeg" alt="Album 13">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album15.jpeg" alt="Album 14">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album116.jpeg" alt="Album 15">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album17.jpeg" alt="Album 16">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album18.jpeg" alt="Album 17">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album19.jpeg" alt="Album 18">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album20.jpeg" alt="Album 19">
+        </div>
+        <div class="grid-item">
+            <img src="./image/Couple Poses.jpeg" alt="Album 20">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album21.jpeg" alt="Album 21">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album22.jpeg" alt="Album 22">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album23.jpeg" alt="Album 23">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album24.jpeg" alt="Album 24">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album25.jpeg" alt="Album 25">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album26.jpeg" alt="Album 26">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album27.jpeg" alt="Album 27">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album28.jpeg" alt="Album 28">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album29.jpeg" alt="Album 29">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album30.jpeg" alt="Album 30">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album31.jpeg" alt="Album 31">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album32.jpeg" alt="Album 32">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album33.jpeg" alt="Album 33">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album34.jpeg" alt="Album 34">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album35.jpeg" alt="Album 35">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album36.jpeg" alt="Album 36">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album37.jpeg" alt="Album 37">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album38.jpeg" alt="Album 38">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album39.jpeg" alt="Album 39">
+        </div>
+        <div class="grid-item">
+            <img src="./image/album40.jpeg" alt="Album 40">
+        </div>
+       
+    </div>
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">X</button>
+        <img id="lightbox-img" src="" alt="Large View">
+        <div class="lightbox-controls">
+            <button onclick="previousImage()">Back</button>
+            <button onclick="nextImage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.grid-item img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        let currentImageIndex = 0;
+
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentImageIndex = index;
+                openLightbox();
+            });
+        });
+
+        function openLightbox() {
+            lightboxImg.src = images[currentImageIndex].src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        function previousImage() {
+            currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : images.length - 1;
+            lightboxImg.src = images[currentImageIndex].src;
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex < images.length - 1) ? currentImageIndex + 1 : 0;
+            lightboxImg.src = images[currentImageIndex].src;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') {
+                    previousImage();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            }
+        });
+    </script>
+    <style>
+        .contact-div{
+            background-color: #202a33;
+            padding: 50px;
+            
+            
+        }
+        .contact-div h1{
+            font-size: 60px;
+            margin-bottom: 5px;
+            
+        }
+        .contact-div p{
+            font-size: larger;
+            
+        }
+        .center-con{
+           
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+
+        }
+        .contact-div button{
+            border-style: hidden;
+            padding: 10px;
+            font-size: larger;
+            border-radius: 5px;
+
+        }
+    </style>
+    <div class="contact-div">
+        <div class="center-con">
+            <h1>
+                Book Velvets
+            </h1>
+            <p> Whatever it is. the way you tell your story can make all the difference </p>
+            <button>Contact</button>
+        </div>
+    </div>
+    <style>
+        .image-container {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.image-box {
+    position: relative;
+    width: calc(100% / 5 - 20px);
+    overflow: hidden;
+    
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.image-box:hover img {
+    transform: scale(1.2);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.image-box:hover .overlay {
+    opacity: 1;
+}
+@media (max-width: 768px) {
+    .image-box {
+  
+    width: calc(70% / 2 - 10px);
+    
+}
+
+
+}
+    </style>
+    <div class="image-container">
+        <div class="image-box">
+            <img src="./image/baby1.jpeg" alt="Image 1">
+            <div class="overlay">Birthday</div>
+        </div>
+        <div class="image-box">
+            <img src="./image/baby2.jpeg" alt="Image 2">
+            <div class="overlay">Baby Shower</div>
+        </div>
+        <div class="image-box">
+            <img src="./image/v61_62.png" alt="Image 3">
+            <div class="overlay">Wedding</div>
+        </div>
+        <div class="image-box">
+            <img src="./image/baby3.jpeg" alt="Image 4">
+            <div class="overlay">Photoshoot</div>
+        </div>
+    </div>
+    <footer id="footer-tab"></footer>
+    <script setup lang="ts">
+        fetch('Footer/Footer.html')
+        .then(response => response.text())
+        .then(data1 =>{
+            document.getElementById('footer-tab').innerHTML=data1;
+        });
+    </script>
+</body>
+</html>

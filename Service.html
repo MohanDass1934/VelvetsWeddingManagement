@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main-view {
+            position: relative;
+            max-width: 100%;
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        .main-view h1 {
+            font-family: Kunstler Script, cursive;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px gray;
+            margin: 0;
+        }
+        .main-view p {
+            font-size: 1rem;
+            line-height: 1.6;
+            letter-spacing: 1px;
+            max-width: 700px;
+            margin: 10px auto 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+        .image-con {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 7px 7px 20px rgba(0,0,0,0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .description-container, .image-container {
+            flex: 1 1 45%;
+            margin: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .description-container p {
+            line-height: 1.6;
+            letter-spacing: 1.5px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+        .header {
+          background-color: #ffffff;
+          padding: 10px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 1000;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .logo {
+          font-size: 24px;
+          font-weight: bold;
+          margin: 0;
+          margin-left: 20px;
+      }
+      .menu-icon {
+          display: none;
+          font-size: 24px;
+          cursor: pointer;
+          margin-right: 40px;
+      }
+      .right-head {
+          display: flex;
+          gap: 15px;
+          margin-right: 50px;
+      }
+      .right-head a {
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          padding: 10px;
+          border-radius: 5px;
+          transition: background-color 0.3s, color 0.3s;
+      }
+      .right-head a:hover {
+          background-color: #202a33;
+          color: white;
+      }
+      .button {
+          padding: 10px;
+          background-color: #747474;
+          color: white;
+          font-size: large;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+      .button:hover {
+          background-color: #4d4d4d;
+      }
+      @media (max-width: 768px) {
+        .logo{
+          margin-left: 10px;
+        }
+          .menu-icon {
+              display: block;
+              margin-right: 30px;
+          }
+          .right-head {
+              display: none;
+              flex-direction: column;
+              width: 100%;
+              background-color: #ffffff;
+              position: absolute;
+              top: 50px;
+              left: 0;
+              margin:0%;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          }
+          .right-head.active {
+              display: flex;
+          }
+          .right-head a {
+              text-align: center;
+              width: 100%;
+          }
+      }
+
+        @media (max-width: 1024px) {
+            .main-view h1 {
+                font-size: 50px;
+            }
+            .main-view p {
+                font-size: 16px;
+            }
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .image-con {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .description-container, .image-container {
+                flex: 1 1 100%;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-view h1 {
+                font-size: 40px;
+            }
+            .main-view p {
+                font-size: 14px;
+            }
+            .description-container, .image-container {
+                flex: 1 1 100%;
+            }
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-view h1 {
+                font-size: 30px;
+            }
+            .main-view p {
+                font-size: 12px;
+            }
+            .description-container p {
+                font-size: 12px;
+            }
+            .container {
+                padding: 5px;
+            }
+            .image-con {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="header">
+            <h1 class="logo">Velvets</h1>
+            <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+            <div class="right-head">
+                <a href="../Index.html">Home</a>
+                <a href="../Album.html">Albums</a>
+                <a href="../Teams.html">Teams</a>
+                <a href="../Videos.html">Videos</a>
+                <a href="../Testimonial.html">Testimonials</a>
+                <a href="../Service.html">Service</a>
+                <a class="button" href="../Contactpage.html">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        function toggleMenu() {
+            var rightHead = document.querySelector('.right-head');
+            rightHead.classList.toggle('active');
+        }
+    </script>
+    <div class="main-view">
+        <div>
+            <h1>Our Service</h1>
+            <p>Our wedding video page showcases beautiful cinematic highlights of special moments. Relive your 
+               big day through expertly captured footage, from vows to first dances. Our talented videographers 
+               create timeless films that preserve your memories. Browse our gallery to see how we bring your love 
+               story to life on screen.</p>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="image-con">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x300" alt="Decoration and Design">
+            </div>
+            <div class="description-container">
+                <h2>Decoration And Design</h2>
+                <p>This is an image of the product showing its design and appearance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget purus nec sapien fermentum fermentum sit amet non leo.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image-con">
+            <div class="description-container">
+                <h2>Destination and Venue Selection</h2>
+                <p>This is an image of the product showing its design and appearance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget purus nec sapien fermentum fermentum sit amet non leo.</p>
+            </div>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x300" alt="Destination and Venue">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image-con">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x300" alt="Entertainment">
+            </div>
+            <div class="description-container">
+                <h2>Entertainment</h2>
+                <p>This is an image of the product showing its design and appearance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget purus nec sapien fermentum fermentum sit amet non leo.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image-con">
+            <div class="description-container">
+                <h2>Pre-Wedding Celebration</h2>
+                <p>This is an image of the product showing its design and appearance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget purus nec sapien fermentum fermentum sit amet non leo.</p>
+            </div>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x300" alt="Pre-Wedding Celebration">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image-con">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x300" alt="Food and Beverages">
+            </div>
+            <div class="description-container">
+                <h2>Food and Beverages</h2>
+                <p>This is an image of the product showing its design and appearance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget purus nec sapien fermentum fermentum sit amet non leo.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image-con">
+            <div class="description-container">
+                <h2>Wedding Communication</h2>
+                <p>This is an image of the product showing its design and appearance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget purus nec sapien fermentum fermentum sit amet non leo.</p>
+            </div>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x300" alt="Wedding Communication">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image-con">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x300" alt="Wedding Hospitality Service">
+            </div>
+            <div class="description-container">
+                <h2>Wedding Hospitality Service</h2>
+                <p>This is an image of the product showing its design and appearance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget purus nec sapien fermentum fermentum sit amet non leo.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image-con">
+            <div class="description-container">
+                <h2>Wedding Gifts</h2>
+                <p>This is an image of the product showing its design and appearance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget purus nec sapien fermentum fermentum sit amet non leo.</p>
+            </div>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x300" alt="Wedding Gifts">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image-con">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x300" alt="Vendor Management">
+            </div>
+            <div class="description-container">
+                <h2>Vendor Management</h2>
+                <p>This is an image of the product showing its design and appearance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget purus nec sapien fermentum fermentum sit amet non leo.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image-con">
+            <div class="description-container">
+                <h2>Other Wedding Services</h2>
+                <p>This is an image of the product showing its design and appearance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget purus nec sapien fermentum fermentum sit amet non leo.</p>
+            </div>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x300" alt="Other Wedding Services">
+            </div>
+        </div>
+    </div>
+    <footer id="footer-tab"></footer>
+    <script setup lang="ts">
+        fetch('Footer/Footer.html')
+        .then(response => response.text())
+        .then(data1 => {
+            document.getElementById('footer-tab').innerHTML = data1;
+        });
+    </script>
+</body>
+</html>

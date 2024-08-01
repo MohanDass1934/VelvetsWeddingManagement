@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Document</title>
+    <style>
+      body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+      }
+      .header {
+          background-color: #ffffff;
+          padding: 10px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 1000;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .logo {
+          font-size: 24px;
+          font-weight: bold;
+          margin: 0;
+          margin-left: 20px;
+      }
+      .menu-icon {
+          display: none;
+          font-size: 24px;
+          cursor: pointer;
+          margin-right: 40px;
+      }
+      .right-head {
+          display: flex;
+          gap: 15px;
+          margin-right: 50px;
+      }
+      .right-head a {
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          padding: 10px;
+          border-radius: 5px;
+          transition: background-color 0.3s, color 0.3s;
+      }
+      .right-head a:hover {
+          background-color: #202a33;
+          color: white;
+      }
+      .button {
+          padding: 10px;
+          background-color: #747474;
+          color: white;
+          font-size: large;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+      .button:hover {
+          background-color: #4d4d4d;
+      }
+      @media (max-width: 768px) {
+        .logo{
+          margin-left: 10px;
+        }
+          .menu-icon {
+              display: block;
+              margin-right: 30px;
+          }
+          .right-head {
+              display: none;
+              flex-direction: column;
+              width: 100%;
+              background-color: #ffffff;
+              position: absolute;
+              top: 50px;
+              left: 0;
+              margin:0%;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          }
+          .right-head.active {
+              display: flex;
+          }
+          .right-head a {
+              text-align: center;
+              width: 100%;
+          }
+      }
+  </style>
+</head>
+<body >
+  <nav>
+    <div class="header">
+        <h1 class="logo">Velvets</h1>
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <div class="right-head">
+            <a href="../Index.html">Home</a>
+            <a href="../Album.html">Albums</a>
+            <a href="../Teams.html">Teams</a>
+            <a href="../Videos.html">Videos</a>
+            <a href="../Testimonial.html">Testimonials</a> 
+            <a href="../Service.html">Service</a> 
+            <a class="button" href="../Contactpage.html">Contact Us</a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    function toggleMenu() {
+        var rightHead = document.querySelector('.right-head');
+        rightHead.classList.toggle('active');
+    }
+</script>
+<style>
+    .headimage{
+       width: 100%;
+        
+    }
+    .myslides{
+        width: 100%;
+        height: 400px;
+        /* display: none; */
+    }
+</style>
+<div class="slideshow-container">
+
+  <div class="mySlides fade">
+    <img src="image/headimage" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="./image/headimage2.jpeg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="./image/headimage4.jpeg" style="width:100%">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script src="./script.js"></script>
+<br>
+<br>
+<br>
+<div class="Service-container">
+  <h1 class="service-heading">EXTRAORDINARY EVENTS</h1>
+  <H2 class="sub-heading"> Flowless Excution</H2>
+  <div class="ser-main">
+    <div class="left-ser">
+      <div class="ser-text">
+        <p>
+          Marriage is the beautiful journey of love and commitment, where two individuals 
+          come together in a union celebrated with a joyous ceremony. As they exchange vows, 
+          they embark on a lifelong partnership built on harmony,devotion, and togetherness. 
+          this sacred bond signifies not only their romantic connection bbut also their shared journey toward 
+          happiness and bliss.
+        </p>
+        <a class="team-btn" href="./Service.html">Our Service</a>
+        <!-- <button>Our Service</button> -->
+      </div>
+    </div>
+    <div class="container-img">
+      <div class="image-1"><img class="image1" src="./image/v28_7.png" alt="weddingimage"></div>
+      <div class="image-2"><img class="image2" src="./image/v28_8.png" alt="the best wedding image in chennai"></div>
+      <div class="image-3"><img class="image3" src="./image/v28_9.png" alt="the image about the velvets"></div>
+    </div>
+
+  </div>
+</div>
+<!-- ................................................our team section us heare.................................... -->
+<div class="team-container">
+  <h1 class="team-heading">INDIA</h1>
+  <H2 class="sub-heading"> All Over India</H2>
+  <div class="team-main">
+    <div class="team-container-img">
+      <div class="team-image-2"><img class="team-image2" src="./image/v31_27.png" alt="the best wedding image in chennai"></div>
+      <div class="team-image-3"><img class="team-image3" src="./image/v31_26.png" alt="the image about the velvets"></div>
+      <div class="team-image-1"><img class="team-image1" src="./image/download (2).jpeg" alt="weddingimage"></div>
+    </div>
+    <div class="left-team">
+      <div class="team-text">
+        <p>
+          While not planning in our home base for the pacific northwest 
+          our experienced team is ready to jet-set 
+          for the noble events around the globule
+         
+        </p>
+        <a class="team-btn" href="./Teams.html">Our Team</a>
+        <!-- <button class="team-btn">Our Team</button> -->
+      </div>
+    </div>
+
+  </div>
+</div>
+<!--....................... resent events ................................-->
+
+
+<div class="resent-container">
+  <h1 class="team-heading">SEE OUR</h1>
+  <H2 class="sub-heading">Latest Events</H2>
+  <div class="resent-main">
+    <div class="event-left">
+      <div class="event-list">
+        <ul class="no-dots">
+          <li>Siva - Anitha</li>
+          <li>Surya - Divya</li>
+          <li>Ramesh - Kavya</li>
+          <li>Manoj - Swathi</li>
+          <li>Karthik - Priya</li>
+          <li><a class="team-btn" href="./Testimonial.html">Events</a></li>
+          <!-- <li><button class="team-btn">Our Team</button></li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="event-right">
+      <img src="./image/v36_12.png" alt="the resent wedding image">
+
+    </div>
+  </div>
+
+</div>
+<!--.................................gallery section................................-->
+
+<div class="gallery-image">
+  <H2 class="sub-heading" style="color: white;">Latest Image's</H2>
+  <div class="image-container">
+    <div class="image-box">
+        <img src="./image/cer.jpeg" alt="Image 1">
+        <!-- <div class="overlay">Image 1</div> -->
+    </div>
+    <div class="image-box">
+        <img src="./image/Ceremony _ Photo.jpeg" alt="Image 2">
+        <!-- <div class="overlay">Image 2</div> -->
+    </div>
+    <div class="image-box">
+        <img src="./image/Wedding Couples.jpeg" alt="Image 3">
+        <!-- <div class="overlay">Image 3</div> -->
+    </div>
+    <div class="image-box">
+        <img src="./image/v31_25.png" alt="Image 4">
+        <!-- <div class="overlay">Image 4</div> -->
+    </div>
+    <div class="image-box">
+        <img src="./image/Perfection!!.jpeg" alt="Image 5">
+        <!-- <div class="overlay">Image 5</div> -->
+    </div>
+    <div class="image-box">
+        <img src="./image/Couple Poses.jpeg" alt="Image 6">
+        <!-- <div class="overlay">Image 6</div> -->
+    </div>
+  </div>
+ <div class="btn-con"> <a class="gallery-btn" href="./Teams.html">Our Gallery</a>
+  <style>
+    .gallery-btn{
+      background-color: #ffffff;
+      text-decoration: none;
+      padding: 10px;
+      color: #000000;
+      border-radius: 5px;
+
+    }
+    .gallery-btn:hover{
+      background-color: #d4d4d4;
+    }
+  </style>
+</div>
+</div>
+<!--.............................. Contact Page.....................................-->
+
+
+<div class="contact-container">
+  <div class="contact-form">
+      <h1>Contact Us</h1>
+      <p>Feel free to contact us by filling the form below.</p>
+      <form action="#">
+          <div class="form-group-inline">
+              <div class="form-group">
+                  <label for="first-name">First Name</label>
+                  <input type="text" id="first-name" name="first-name">
+              </div>
+              <div class="form-group">
+                  <label for="last-name">Last Name</label>
+                  <input type="text" id="last-name" name="last-name">
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email">
+          </div>
+          <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message"></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+      </form>
+  </div>
+  <div class="contact-image">
+      <img src="./image/v54_14.png" alt="Contact Image">
+  </div>
+</div>
+
+<footer id="footer-tab"></footer>
+<script setup lang="ts">
+    fetch('Footer/Footer.html')
+    .then(response => response.text())
+    .then(data1 =>{
+        document.getElementById('footer-tab').innerHTML=data1;
+    });
+</script>
+</body>
+</html>
